@@ -16,6 +16,3 @@ def solution(n):
         answer+=arr[i]*size
         size_-=1
     return answer
-
-num = int(input())
-print(int(solution(num)))
