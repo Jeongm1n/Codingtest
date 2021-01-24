@@ -1,2 +1,0 @@
-# CodingtestWithPython
-Codingtest with python
