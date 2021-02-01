@@ -16,7 +16,3 @@ def solution(n):
         answer+=arr[i]*size
         size_-=1
     return answer
-<<<<<<< HEAD
-
-=======
->>>>>>> 004399a425313d1a639cf4b8b6563dc8932bc38d
