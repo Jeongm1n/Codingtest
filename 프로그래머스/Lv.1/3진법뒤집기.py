@@ -1,20 +1,15 @@
-import math
 def solution(n):
-    answer = []
-    result = 0
-    while n>0:
-        answer.append(n%3)
+    temp = []
+    answer = 0
+    if n == 1:
+        return 1
+    while n > 1:
+        temp.append(n%3)
         n //= 3
-    print(answer)
-    i = len(answer)-1
-    j = 0
-    while 1:
-        result += (answer[j]*math.pow(3, i))
-        i -= 1
-        j += 1
-        if i == -1:
-            break
-    return result
-    
-
-print(solution(45))
+        if n == 1:
+            temp.append(n)
+    for i in range(len(temp)):
+        answer += int(temp[i])*(3**(len(temp)-i-1))
+    return answer
+n = int(input())
+print(solution(n))
