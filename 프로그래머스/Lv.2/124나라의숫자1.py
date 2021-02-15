@@ -5,7 +5,4 @@ def solution(n):
         answer = '124'[n%3] + answer
         n //= 3
     return answer
-
-
-n = int(input())
-print(solution(n))
+print(solution(int(input())))
