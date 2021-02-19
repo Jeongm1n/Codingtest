@@ -1,31 +1,17 @@
 def solution(progresses, speeds):
     answer = []
-    result=[]
-    i=0
-    cnt=0
-    while progresses[i]<100 and i<len(progresses):
-        progresses[i]+=speeds[i]
-        cnt+=1
-        if progresses[i]>=100:
-            result.append(cnt)
-            cnt=0
-            i+=1
-            if i==len(progresses):
-                break
-    i=0
-    while 1:
-        cnt=0
-        for j in range(i, len(result)):
-            if result[i]>=result[j]:
-                cnt+=1
-            else:
-                i=j
-                break
-        answer.append(cnt)
-        if sum(answer)==len(result):
-            break
+    while len(progresses) > 0:
+        if progresses[0] >= 100:
+            cnt = 0 
+            while progresses[0] >= 100:
+                cnt += 1
+                progresses.pop(0)
+                speeds.pop(0)
+                if len(progresses) == 0:
+                    break
+            answer.append(cnt)
+        progresses = [progresses[i]+speeds[i] for i in range(len(progresses))]
     return answer
-
-progresses=[10,20,30,40]
-speeds=[40, 60, 10, 20]
+progresses = list(map(int, input().split()))
+speeds = list(map(int, input().split()))
 print(solution(progresses, speeds))
