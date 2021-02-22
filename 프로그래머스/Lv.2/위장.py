@@ -1,13 +1,13 @@
-from collections import Counter
-
 def solution(clothes):
-    counter_each_category = Counter([cat for _, cat in clothes])
-    possible_cnt = 1
-    
-    for key in counter_each_category:
-        possible_cnt *= (counter_each_category[key] + 1)
-        # 각 종류의 수 +1하여 모두 곱하기
-    return possible_cnt - 1
-
-clothes=[["yellow_hat", "headgear"], ["blue_sunglasses", "eyewear"], ["green_turban", "headgear"],["fu", "leg"]]
+    answer = {}
+    for i in clothes:
+        if i[1] in answer:
+            answer[i[1]] += 1
+        else:
+            answer[i[1]] = 1
+    cnt = 1
+    for i in answer.value():
+        cnt *= (i+1)
+    return cnt-1
+clothes = [list(map(str, input().split())) for _ in range(int(input()))]
 print(solution(clothes))
