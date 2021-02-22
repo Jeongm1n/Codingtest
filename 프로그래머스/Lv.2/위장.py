@@ -6,7 +6,7 @@ def solution(clothes):
         else:
             answer[i[1]] = 1
     cnt = 1
-    for i in answer.value():
+    for i in answer.values():
         cnt *= (i+1)
     return cnt-1
 clothes = [list(map(str, input().split())) for _ in range(int(input()))]
