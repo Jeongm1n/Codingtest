@@ -1,10 +1,18 @@
+import sys
+
+input = sys.stdin.readline
+n = int(input())
+array = list(map(int, input().split()))
+commands = [list(map(int, input().split())) for _ in range(n)]
+
+
 def solution(array, commands):
     answer = []
-    for element in commands:
-        temp = array[element[0]-1:element[1]]
+    for i in commands:
+        temp = array[i[0] - 1 : i[1]]
         temp.sort()
-        answer.append(temp[element[2]-1])
+        answer.append(temp[i[2] - 1])
     return answer
-array = list(map(int, input().split()))
-commands = [list(map(int, input().split())) for _ in range(3)]
+
+
 print(solution(array, commands))
