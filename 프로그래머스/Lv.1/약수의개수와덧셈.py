@@ -1,8 +1,7 @@
 import sys
 
 input = sys.stdin.readline
-left = int(input())
-right = int(input())
+left, right = map(int, input().split())
 
 
 def divisor(num):
