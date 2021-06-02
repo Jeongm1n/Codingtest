@@ -1,16 +1,23 @@
+import sys
 import heapq
-def solution(scoville, K):
+
+input = sys.stdin.readline
+
+scoville = list(map(int, input().split()))
+k = int(input())
+
+
+def solution(scoville, k):
     scoville.sort()
     answer = 0
     while len(scoville) > 0:
-        if scoville[0] >= K:
+        if scoville[0] >= k:
             return answer
-        a = heapq.heappop(scoville)
+        temp1 = heapq.heappop(scoville)
         if scoville:
-            b = heapq.heappop(scoville)
-            heapq.heappush(scoville, a+(b*2))
-        answer += 1
+            heapq.heappush(scoville, temp1 + (heapq.heappop(scoville) * 2))
+            answer += 1
     return -1
-scoville = list(map(int, input().split()))
-K = int(input())
-print(solution(scoville, K))
+
+
+print(solution(scoville, k))
