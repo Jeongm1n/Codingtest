@@ -1,20 +1,25 @@
-def solution(priorities, location):
-    idx = [i for i in range(len(priorities))]
-    length = len(priorities)
-    value = priorities[location]
-    answer = 0
-    while 1:
-        temp = priorities.pop(0)
-        temp_idx = idx.pop(0)
-        if len(priorities) == 0:
-            return length
-        if temp < max(priorities):
-            priorities.append(temp)
-            idx.append(temp_idx)
-        else:
-            answer += 1
-            if temp == value and temp_idx == location:
-                return answer
+import sys
+
+input = sys.stdin.readline
+
 priorities = list(map(int, input().split()))
 location = int(input())
+
+
+def solution(priorities, location):
+    priorities = [(priorities[x], x) for x in range(len(priorities))]
+    answer = 0
+    while True:
+        if priorities[0][0] == max(priorities)[0] and priorities[0][1] == location:
+            answer += 1
+            break
+        if priorities[0][0] < max(priorities)[0]:
+            num, idx = priorities.pop(0)
+            priorities.append((num, idx))
+        else:
+            answer += 1
+            priorities.pop(0)
+    return answer
+
+
 print(solution(priorities, location))
