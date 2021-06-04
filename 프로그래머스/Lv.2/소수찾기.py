@@ -18,7 +18,7 @@ def isPrime(n):
 def solution(numbers):
     answer = []
     for i in range(len(numbers)):
-        temp = list(((map(int, map("".join, permutations(numbers, i + 1))))))
+        temp = list(set((map(int, map("".join, permutations(numbers, i + 1))))))
         print(temp)
         for n in temp:
             if isPrime(n):
