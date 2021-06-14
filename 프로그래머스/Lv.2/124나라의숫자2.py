@@ -4,5 +4,5 @@ def solution(n):
     else:
         x, y = divmod(n-1, 3)
         return solution(x) + '124'[y]
-    return
+    
 print(solution(int(input())))
