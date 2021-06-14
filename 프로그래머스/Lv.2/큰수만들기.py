@@ -1,3 +1,11 @@
+import sys
+
+input = sys.stdin.readline
+
+k = int(input())
+number = input()
+
+
 def solution(number, k):
     collected = []
     for (i, num) in enumerate(number):
@@ -9,7 +17,7 @@ def solution(number, k):
             break
         collected.append(num)
     collected = collected[:-k] if k > 0 else collected
-    return ''.join(collected)
-number = input()
-k = int(input())
+    return "".join(collected)
+
+
 print(solution(number, k))
