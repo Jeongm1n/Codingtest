@@ -8,7 +8,6 @@ def find_parent(parent, x):
 
 # 두 원소가 속한 집합을 합치기
 def union_parent(parent, a, b):
-    x = b
     a = find_parent(parent, a)
     b = find_parent(parent, b)
     if a < b:
@@ -46,4 +45,4 @@ for edge in edges:
         union_parent(parent, a, b)
         result += cost
 
-print(result)
+print(parent)
