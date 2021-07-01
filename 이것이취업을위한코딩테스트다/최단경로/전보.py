@@ -1,6 +1,9 @@
+import sys
 import heapq
 
+input = sys.stdin.readline
 INF = int(1e9)
+
 n, m, start = map(int, input().split())
 graph = [[] for _ in range(n + 1)]
 distance = [INF] * (n + 1)
@@ -27,11 +30,11 @@ def dijkstra(start):
 
 dijkstra(start)
 
-count = 0
+count = -1
 max_distance = 0
 for d in distance:
     if d != INF:
         count += 1
         max_distance = max(max_distance, d)
 
-print(count - 1, max_distance)
+print(count, max_distance)
