@@ -9,12 +9,12 @@ def solution(s):
         if s[start].isdigit():
             answer += s[start]
             start = end
-            end = end + 1
+            end += 1
             continue
         if s[start:end] in alpha:
             answer += str(alpha.index(s[start:end]))
             start = end
-            end = end + 1
+            end += 1
         else:
             end += 1
     return int(answer)
