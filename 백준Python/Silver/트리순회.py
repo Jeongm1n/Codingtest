@@ -17,7 +17,7 @@ def preorder(root):
 
 def inorder(root):
     if root != ".":
-        inorder(tree[root][0])
+        inorder(tree[root][0])  
         print(root, end="")
         inorder(tree[root][1])
 
